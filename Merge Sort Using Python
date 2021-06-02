@@ -1,0 +1,34 @@
+a = [10,45,29,20,11,30,23,69]              # list 
+
+def merge_sort(input_list):                # divide the list in subparts 
+  if len(input_list) <= 1:
+    return input_list
+  else:
+    mid = len(input_list) // 2
+    left = merge_sort(input_list[:mid])
+    right = merge_sort(input_list[mid:])
+    new_list = merge(left,right)
+    return new_list
+
+
+def merge(listA,listB):                       # merge the subparts after sorting 
+    new_list = []
+    a = 0
+    b = 0
+    while a < len(listA) and b < len(listB):
+        if listA[a] < listB[b]:
+          new_list.append(listA[a])
+          a += 1
+        else:
+          new_list.append(listB[b])
+          b += 1
+    while a < len(listA):
+      new_list.append(listA[a])
+      a += 1
+    while b < len(listB):
+      new_list.append(listB[b])
+      b += 1
+
+    return new_list
+    
+print(merge_sort(a))                          # final output
