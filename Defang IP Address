@@ -1,0 +1,10 @@
+def defang_IP_Address(IP_Address):
+  defang_IP_Address = ""
+  split_address = IP_Address.split(".")
+  seperator = "[.]"
+  defang_IP_Address = seperator.join(split_address)
+  return defang_IP_Address
+
+
+IP_Address = defang_IP_Address("121.122.129.001")
+print(IP_Address)
